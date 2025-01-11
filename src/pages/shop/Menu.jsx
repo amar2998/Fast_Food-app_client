@@ -16,7 +16,7 @@ const Menu = () => {
         // fetch data
         const fetchData = async () => {
             try {
-                const response = await fetch("http://localhost:6001/menu")
+                const response = await fetch(`${import.meta.env.VITE_BASE_URL}/menu`)
                 const data = await response.json();
                 setMenu(data);
                 setFilterItems(data);

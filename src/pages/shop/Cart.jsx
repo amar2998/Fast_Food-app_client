@@ -28,7 +28,7 @@ const Cart = () => {
     })
       .then((willDelete) => {
         if (willDelete) {
-          fetch(`http://localhost:6001/carts/${item._id}`, {
+          fetch(`${import.meta.env.VITE_BASE_URL}/carts/${item._id}`, {
             method: "DELETE"
           }).then((res) => res.json()).then((data) => {
             if (cart.length > 0) {
@@ -46,7 +46,7 @@ const Cart = () => {
 
   const handleMinus = (item) => {
     if (item.quantity > 1) {
-      fetch(`http://localhost:6001/carts/${item._id}`, {
+      fetch(`${import.meta.env.VITE_BASE_URL}/carts/${item._id}`, {
         method: "PUT",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({ quantity: item.quantity - 1 })
@@ -62,7 +62,7 @@ const Cart = () => {
 
   // Increase item quantity
   const handlePlus = (item) => {
-    fetch(`http://localhost:6001/carts/${item._id}`, {
+    fetch(`${import.meta.env.VITE_BASE_URL}/carts/${item._id}`, {
       method: "PUT",
       headers: { "Content-type": "application/json; charset=UTF-8" },
       body: JSON.stringify({ quantity: item.quantity + 1 })

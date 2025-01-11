@@ -15,7 +15,7 @@ const AlterItems = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:6001/menu/${id}`);
+        const response = await fetch(`${import.meta.env.VITE_BASE_URL}/menu/${id}`);
         const data = await response.json();
         setItem(data);  // Set the single item in state
         // setLoading(false);

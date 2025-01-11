@@ -10,7 +10,7 @@ const Popular = () => {
       // fetch data
       const fetchData = async () => {
         try {
-          const response = await fetch("http://localhost:6001/menu");
+          const response = await fetch(`${import.meta.env.VITE_BASE_URL}/menu`);
           const data = await response.json();
   
           // Filtering items with category "offered"

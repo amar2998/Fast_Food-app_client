@@ -14,7 +14,7 @@ const Order = () => {
   const { refetch, data: orders = [] } = useQuery({
     queryKey: ['orders', user?.email],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:6001/payment?email=${user?.email}`, {
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}/payment?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${token}`
         }
